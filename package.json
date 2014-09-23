@@ -20,5 +20,8 @@
     "url": "https://github.com/HeikkiAlanen/node-form-submit/issues"
   },
   "homepage": "https://github.com/HeikkiAlanen/node-form-submit",
-  "form-email": "<heikki.alanen@metropolia.fi>"
+  "form-email": "<heikki.alanen@metropolia.fi>",
+  "dependencies": {
+    "express": "^4.9.4"
+  }
 }
