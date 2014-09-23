@@ -4,7 +4,8 @@
   "description": "Simple html form with submit.",
   "main": "index.js",
   "scripts": {
-    "test": ""
+    "test": "",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   "homepage": "https://github.com/HeikkiAlanen/node-form-submit",
   "form-email": "<heikki.alanen@metropolia.fi>",
   "dependencies": {
-    "express": "^4.9.4"
+    "express": "^4.9.4",
+    "nodemailer": "^1.3.0"
   }
 }
