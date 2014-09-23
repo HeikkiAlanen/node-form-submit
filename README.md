@@ -1,6 +1,13 @@
 node-form-submit
 ================
 
+
+email.conf
+==========
+
+email.conf contains sender gmail username and password, which is why we do not provide one by default.
+However there is email_sample.conf included where you need to fill your own credentials.
+
 [TT00CC06-3001 Lecture 5 task](https://github.com/paazmaya/modern-web-tools-with-node-js-book/blob/master/lectures/2014-09-23.md)
 
 Create a group of three members, of which one is the owner of the given new repository, and the two
