@@ -8,7 +8,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hjs');
 
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded());
 
 app.get('/', function(req, res){
 	res.render('form', {
@@ -20,11 +20,7 @@ app.get('/', function(req, res){
 });
 
 app.post('/', function (req, res) {
-  var email = req.params.email;
-  var name = req.params.name;
-  console.log(req.params);
-  console.log(name);
-  res.send("success");
+	res.send(JSON.stringify(req.body));
 });
 
 app.listen(6500);
