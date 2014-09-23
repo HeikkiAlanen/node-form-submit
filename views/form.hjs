@@ -1,11 +1,17 @@
-<form action="" method="post" class="pure-form pure-form-stacked">
-	<fieldset>
-		<legend>Feedback</legend>
+{{<layout}}
+  {{$content}}
 
-		<input id="name" name="name" placeholder="Name" type="text" size="30" required autofocus />
-		<input id="email" name="email" placeholder="Email" type="email" size="30" required />
-		<textarea id="message" placeholder="Message" cols="30" rows="5" required></textarea>
+		<form action="" method="post" class="pure-form pure-form-stacked">
+			<fieldset>
+				<legend>Feedback</legend>
 
-		<button type="submit" class="pure-button pure-button-primary">Submit</button>
-	</fieldset>
-</form>
+				<input id="name" name="name" placeholder="Name" type="text" size="30" required autofocus />
+				<input id="email" name="email" placeholder="Email" type="email" size="30" required />
+				<textarea id="message" placeholder="Message" cols="30" rows="5" required></textarea>
+
+				<button type="submit" class="pure-button pure-button-primary">Submit</button>
+			</fieldset>
+		</form>
+
+  {{/content}}
+{{/layout}}
