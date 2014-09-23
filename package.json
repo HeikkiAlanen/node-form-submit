@@ -1,0 +1,24 @@
+{
+  "name": "node-form-submit",
+  "version": "0.1.0",
+  "description": "Simple html form with submit.",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HeikkiAlanen/node-form-submit.git"
+  },
+  "keywords": [
+    "html",
+    "form"
+  ],
+  "author": "Heikki Alanen <heikki.alanen@metropolia.fi>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HeikkiAlanen/node-form-submit/issues"
+  },
+  "homepage": "https://github.com/HeikkiAlanen/node-form-submit",
+  "form-email": "<heikki.alanen@metropolia.fi>"
+}
