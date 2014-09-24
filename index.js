@@ -1,14 +1,14 @@
 var express = require('express');
-var fs = require('fs');
 var bodyParser = require('body-parser');
 var path = require('path');
+var validator = require('validator');
 
 var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hjs');
 
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/', function(req, res){
 	res.render('form', {
@@ -20,7 +20,16 @@ app.get('/', function(req, res){
 });
 
 app.post('/', function (req, res) {
-	res.send(JSON.stringify(req.body));
+	var name = req.body.name;
+	var email = req.body.email;
+	var message = req.body.message;
+	if ((validator.isEmail(email)) && (name !== "") && (message !== "")) {
+		res.send("Tiedot ovat oikein!");
+	} else {
+		res.send("Tiedot ovat väärin!");
+	}
+	
+//	res.send(JSON.stringify(req.body));
 });
 
 app.listen(6500);
