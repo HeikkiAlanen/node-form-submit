@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
 var validator = require('validator');
+var sendEmail = require("./lib/send-email.js");
 
 var app = express();
 
@@ -24,7 +25,8 @@ app.post('/', function (req, res) {
 	var email = req.body.email;
 	var message = req.body.message;
 	if ((validator.isEmail(email)) && (name !== "") && (message !== "")) {
-		res.send("Tiedot ovat oikein!");
+		sendEmail("Feedback", "From: " + name + "\nEmail: " + email + "\nMessage: " + message);
+		res.send("Tiedot ovat oikein! animoituna");
 	} else {
 		res.send("Tiedot ovat väärin!");
 	}
