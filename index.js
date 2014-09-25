@@ -22,7 +22,7 @@ app.get('/', function(req, res){
 app.post('/', function (req, res) {
   var email = req.params.email;
   var name = req.params.name;
-  console.log(req.params);
+  console.log(req.body("name"));
   console.log(name);
   res.send("success");
 });
