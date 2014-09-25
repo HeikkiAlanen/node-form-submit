@@ -3,13 +3,15 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var validator = require('validator');
 var sendEmail = require("./lib/send-email.js");
-
+var serveStatic = require("serve-static");
 var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hjs');
 
 app.use(bodyParser.urlencoded({extended: true}));
+app.use("/assets", serveStatic("./assets"));
+
 
 app.get('/', function(req, res){
 	res.render('form', {
