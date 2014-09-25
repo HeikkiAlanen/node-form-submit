@@ -1,0 +1,11 @@
+{
+  "bitwise": true,
+  "curly": true,
+  "immed": true,
+  "newcap": true,
+  "noarg": true,
+  "undef": true,
+  "browser":true,
+  "jquery": "$",
+  "unused": true
+}

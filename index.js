@@ -22,13 +22,16 @@ app.get('/', function(req, res){
 	});
 });
 
-app.post('/', function (req, res) {
+app.post('/submit', function (req, res) {
 	var name = req.body.name;
 	var email = req.body.email;
 	var message = req.body.message;
 	if ((validator.isEmail(email)) && (name !== "") && (message !== "")) {
-		sendEmail("Feedback", "From: " + name + "\nEmail: " + email + "\nMessage: " + message);
-		res.send("Tiedot ovat oikein! animoituna");
+		// 5 sec timeout to show off the loader gif
+		setTimeout(function(){
+			sendEmail("Feedback", "From: " + name + "\nEmail: " + email + "\nMessage: " + message);
+			res.send("Tiedot ovat oikein! animoituna");
+		}, 5000);
 	} else {
 		res.send("Tiedot ovat väärin!");
 	}

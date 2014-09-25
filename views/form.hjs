@@ -1,7 +1,9 @@
 {{<layout}}
   {{$content}}
+		<div class="submit-message" style="display:none; padding:10px;">
 
-		<form action="" method="post" class="pure-form pure-form-stacked">
+		</div>
+		<form action="/submit" method="post" class="pure-form pure-form-stacked">
 			<fieldset>
 				<legend>Feedback</legend>
 
@@ -12,6 +14,8 @@
 				<button type="submit" class="pure-button pure-button-primary">Submit</button>
 			</fieldset>
 		</form>
+
+		<img src="/assets/gandalf.gif" class="loader" style="display:none;">
 
   {{/content}}
 {{/layout}}
