@@ -4,7 +4,7 @@
   "description": "Simple html form with submit.",
   "main": "index.js",
   "scripts": {
-    "test": "jshint index.js lib/* assets/custom.js",
+    "test": "jshint index.js lib/send-email.js assets/custom.js",
     "start": "node index.js"
   },
   "repository": {
