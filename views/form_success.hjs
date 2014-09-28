@@ -1,10 +1,8 @@
 {{<layout}}
 	{{$content}}
 		{{#messages}}
-			<div class="messages">
-				{{#messages}}
-					<p>{{.}}</p>
-				{{/messages}}
+			<div class="pure-form-messages">
+				<p class="pure-form-message pure-form-message-{{type}}">{{message}}</p>
 			</div>
 		{{/messages}}
 

@@ -1,20 +1,18 @@
 {{<layout}}
 	{{$content}}
-		{{#messages}}
-			<div{{#messages.errors}} style="color: #b94a48;"{{/messages.errors}}>
-			{{#messages}}
-				<p>{{.}}</p>
-			{{/messages}}
-			</div>
-		{{/messages}}
-
 		<form action="/" method="post" class="pure-form pure-form-stacked">
 			<fieldset>
 				<legend>Feedback</legend>
 
-				<input name="name" placeholder="Name" type="text" size="30" required pattern=".{3,}" autofocus title="Three characters minimum" />
-				<input name="email" placeholder="Email" type="email" size="30" required />
-				<textarea name="message" placeholder="Message" cols="30" rows="5" required pattern=".{10,}" title="10 characters minimum"></textarea>
+				{{#messages}}
+					<div class="pure-form-messages">
+						<p class="pure-form-message pure-form-message-{{type}}">{{message}}</p>
+					</div>
+				{{/messages}}
+
+				<input name="name" placeholder="Name" type="text" size="30" required pattern=".{3,}" autofocus title="Three characters minimum" value="{{form.name}}" />
+				<input name="email" placeholder="Email" type="email" size="30" required value="{{form.email}}" />
+				<textarea name="message" placeholder="Message" cols="30" rows="5" required pattern=".{10,}" title="10 characters minimum">{{form.message}}</textarea>
 
 				<button type="submit" class="pure-button pure-button-primary">Submit</button>
 			</fieldset>

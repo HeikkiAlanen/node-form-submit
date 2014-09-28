@@ -4,6 +4,7 @@ var path = require('path');
 var validator = require('validator');
 var sendEmail = require("./lib/send-email.js");
 var serveStatic = require("serve-static");
+var sanitizer = require('sanitizer');
 var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
@@ -25,9 +26,10 @@ app.get('/', function(req, res){
 app.get('/success', function(req, res) {
 	res.render('form_success', {
 		title: 'Form success',
-		messages: {
-			messages: ['Form successfully sent.']
-		},
+		messages: [{
+			message: 'Form successfully sent.',
+			type: 'success'
+		}],
 		partials: {
 			layout: 'layout'
 		}
@@ -35,21 +37,38 @@ app.get('/success', function(req, res) {
 });
 
 app.post('/', function(req, res) {
-	var name = req.body.name;
-	var email = req.body.email;
-	var message = req.body.message;
+	var name = sanitizer.escape(req.body.name);
+	var email = sanitizer.escape(req.body.email);
+	var message = sanitizer.escape(req.body.message);
 	var errors = [];
 
-	if (!validator.isLength(name, 3)) { errors.push('Name should be three characters minimum.'); }
-	if (!validator.isEmail(email)) { errors.push('Please provide a valid email address.'); }
-	if (!validator.isLength(message, 10)) { errors.push('Message should be 10 characters minumum.'); }
+	if (!validator.isLength(name, 3)) {
+		errors.push({
+			message:'Name should be three characters minimum.',
+			type: 'error'
+		});
+	}
+	if (!validator.isEmail(email)) {
+		errors.push({
+			message: 'Please provide a valid email address.',
+			type: 'error'
+		});
+	}
+	if (!validator.isLength(message, 10)) {
+		errors.push({
+			message: 'Message should be 10 characters minimum.',
+			type: 'error'
+		});
+	}
 
 	if (errors.length) {
 		res.render('form', {
 			title: 'Form error',
-			messages: {
-				messages: errors,
-				errors: true,
+			messages: errors,
+			form: {
+				name: name,
+				email: email,
+				message: message
 			},
 			partials: {
 				layout: 'layout'
