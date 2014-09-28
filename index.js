@@ -22,21 +22,44 @@ app.get('/', function(req, res){
 	});
 });
 
-app.post('/submit', function (req, res) {
+app.get('/success', function(req, res) {
+	res.render('form_success', {
+		title: 'Form success',
+		messages: {
+			messages: ['Form successfully sent.']
+		},
+		partials: {
+			layout: 'layout'
+		}
+	});
+});
+
+app.post('/', function(req, res) {
 	var name = req.body.name;
 	var email = req.body.email;
 	var message = req.body.message;
-	if ((validator.isEmail(email)) && (name !== "") && (message !== "")) {
-		// 5 sec timeout to show off the loader gif
-		setTimeout(function(){
-			sendEmail("Feedback", "From: " + name + "\nEmail: " + email + "\nMessage: " + message);
-			res.send("Tiedot ovat oikein! animoituna");
-		}, 5000);
-	} else {
-		res.send("Tiedot ovat väärin!");
+	var errors = [];
+
+	if (!validator.isLength(name, 3)) { errors.push('Name should be three characters minimum.'); }
+	if (!validator.isEmail(email)) { errors.push('Please provide a valid email address.'); }
+	if (!validator.isLength(message, 10)) { errors.push('Message should be 10 characters minumum.'); }
+
+	if (errors.length) {
+		res.render('form', {
+			title: 'Form error',
+			messages: {
+				messages: errors,
+				errors: true,
+			},
+			partials: {
+				layout: 'layout'
+			}
+		});
 	}
-	
-//	res.send(JSON.stringify(req.body));
+	else {
+		sendEmail("Feedback", "From: " + name + "\nEmail: " + email + "\nMessage: " + message);
+		res.redirect('/success');
+	}
 });
 
 app.listen(6500);

@@ -1,0 +1,14 @@
+{{<layout}}
+	{{$content}}
+		{{#messages}}
+			<div class="messages">
+				{{#messages}}
+					<p>{{.}}</p>
+				{{/messages}}
+			</div>
+		{{/messages}}
+
+		<img src="/assets/gandalf.gif" alt="" />
+
+	{{/content}}
+{{/layout}}

@@ -1,21 +1,24 @@
 {{<layout}}
-  {{$content}}
-		<div class="submit-message" style="display:none; padding:10px;">
+	{{$content}}
+		{{#messages}}
+			<div{{#messages.errors}} style="color: #b94a48;"{{/messages.errors}}>
+			{{#messages}}
+				<p>{{.}}</p>
+			{{/messages}}
+			</div>
+		{{/messages}}
 
-		</div>
-		<form action="/submit" method="post" class="pure-form pure-form-stacked">
+		<form action="/" method="post" class="pure-form pure-form-stacked">
 			<fieldset>
 				<legend>Feedback</legend>
 
-				<input id="name" name="name" placeholder="Name" type="text" size="30" required autofocus />
-				<input id="email" name="email" placeholder="Email" type="email" size="30" required />
-				<textarea id="message" name="message" placeholder="Message" cols="30" rows="5" required></textarea>
+				<input name="name" placeholder="Name" type="text" size="30" required pattern=".{3,}" autofocus title="Three characters minimum" />
+				<input name="email" placeholder="Email" type="email" size="30" required />
+				<textarea name="message" placeholder="Message" cols="30" rows="5" required pattern=".{10,}" title="10 characters minimum"></textarea>
 
 				<button type="submit" class="pure-button pure-button-primary">Submit</button>
 			</fieldset>
 		</form>
 
-		<img src="/assets/gandalf.gif" class="loader" style="display:none;">
-
-  {{/content}}
+	{{/content}}
 {{/layout}}
