@@ -9,6 +9,13 @@
 			.pure-form-message-success { color: green; }
 			.pure-form-message-error { color: #b94a48; }
 		</style>
+		<script src="assets/bower_components/dojo/dojo.js"></script>
+		<script>
+        require(['dojo/dom', 'dojo/domReady!'], function (dom) {
+            var nameNode = dom.byId('name');
+            nameNode.focus();
+        });
+		</script>
 	</head>
 	<body>
 

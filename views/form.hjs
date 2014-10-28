@@ -10,7 +10,7 @@
 					</div>
 				{{/messages}}
 
-				<input name="name" placeholder="Name" type="text" size="30" required pattern=".{3,}" autofocus title="Three characters minimum" value="{{form.name}}" />
+				<input name="name" id="name" placeholder="Name" type="text" size="30" required pattern=".{3,}" title="Three characters minimum" value="{{form.name}}" />
 				<input name="email" placeholder="Email" type="email" size="30" required value="{{form.email}}" />
 				<textarea name="message" placeholder="Message" cols="30" rows="5" required pattern=".{10,}" title="10 characters minimum">{{form.message}}</textarea>
 
