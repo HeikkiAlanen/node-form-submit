@@ -12,6 +12,7 @@ app.set('view engine', 'hjs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use("/assets", serveStatic("./assets"));
+app.use("/build", serveStatic("./build"));
 
 
 app.get('/', function(req, res){

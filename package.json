@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jshint index.js lib/send-email.js assets/custom.js",
-    "start": "node index.js"
+    "start": "component build && node index.js"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,7 @@
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-jshint": "^0.10.0",
-    "jshint": "^2.5.6"
+    "jshint": "^2.5.6",
+    "component": "^1.0.0-rc7"
   }
 }

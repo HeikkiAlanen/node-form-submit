@@ -14,5 +14,6 @@
 
 		{{$content}}{{/content}}
 
+		<script src="/build/build.js"></script>
 	</body>
 </html>

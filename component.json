@@ -1,0 +1,11 @@
+{
+  "name": "node-form-submit",
+  "dependencies": {
+    "components/zepto": "^1.1.4"
+  },
+  "scripts": [
+    "scripts/form.js",
+    "scripts/index.js"
+  ],
+  "main": "scripts/index.js"
+}
