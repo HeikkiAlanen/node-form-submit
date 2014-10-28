@@ -26,3 +26,7 @@ node_modules
 
 #Email configuration file
 email.conf
+
+# Component & Component build folder
+build
+components
